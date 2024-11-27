@@ -185,6 +185,7 @@ createIdBtn.addEventListener('click', () => {
     setupPeerEvents();
     createIdContainer.style.display = 'none';
     connectContainer.style.display = 'block';
+    chatContainer.style.display = 'block';
   } else {
     //alert('Please enter a valid Peer ID.');
   }
@@ -216,9 +217,9 @@ function setupPeerEvents() {
 // Step 4: Handle Connection Events
 function setupConnectionHandlers() {
   connection.on('open', () => {
-    connectContainer.style.display = 'none';
-    chatContainer.style.display = 'block';
-    addMessage('Connected to peer!', 'system');
+    connectContainer.style.display = 'block';
+    
+  //  addMessage('Connected to peer!', 'system');
   });
 
   connection.on('data', (data) => {
@@ -226,7 +227,7 @@ function setupConnectionHandlers() {
   });
 
   connection.on('close', () => {
-    //alert('Connection closed.');
+   // alert('Connection closed.');
     resetApp();
   });
 }
